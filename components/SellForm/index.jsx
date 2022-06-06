@@ -13,6 +13,7 @@ import CryptoJS from 'crypto-js'
 import { useRouter } from "next/router"
 import { useSpring, useTransition, config } from "react-spring";
 import { checkYear, checkZone, getCampania, getSourceType, saveCotization, globalValidationData } from '../../utils/helpers';
+import { useToast } from '@chakra-ui/react'
 
 const whereOptions = [
   { value: 'Por un conocido / amigo.', label: 'Por un conocido / amigo.' },
@@ -24,6 +25,7 @@ const whereOptions = [
 
 const SellForm = ({ step, setStep, setOverlayBackground, zonas, referer, COUNTRY_CODE }) => {
   const { t } = useTranslation('SellForm')
+  const toast = useToast()
 
   const [marcaModeloOptions, setMarcaModeloOption] = useState([])
   const [isMarcaModeloLoading, setMarcaModeloLoading] = useState(false)
@@ -175,6 +177,17 @@ const SellForm = ({ step, setStep, setOverlayBackground, zonas, referer, COUNTRY
         carAndContactData.noGeneroNegocio = 'auto_antiguo' // para propiedad de hubspot
         addContact(carAndContactData)
         return setUserName(values.name)
+      }
+      if (error.message === 'Tiempo de espera agotado.'){
+        toast({
+          id: 'toast-sellFrom-504',
+          title: t('toast504Title'),
+          description: t('toast504Description'),
+          status: 'success',
+          position: 'bottom-right',
+          duration: null,
+          isClosable: true,
+        })       
       }
       console.log('Ocurrió un error en la cotización')
       console.log(error)
