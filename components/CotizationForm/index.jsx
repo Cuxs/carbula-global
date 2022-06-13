@@ -207,14 +207,13 @@ const CotizationForm = ({
               <div className='form-item'>
                 <label>¿A qué estado pertenece tu placa?</label>
                 <Select
-                  // onBlur={handleBlur}
                   name="mxEstadoMatricula"
                   touched={touched.mxEstadoMatricula}
                   value={values.mxEstadoMatricula}
                   options={estadosMX}
                   large
                   placeholder={'Estado'}
-                  // onChange={(option) => setFieldValue('location', option.value)}
+                  onChange={(option) => values.mxEstadoMatricula = option.value}
                 />
               </div>
               <div className={styles['buttons__container--horizontal']}>
