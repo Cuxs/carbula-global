@@ -27,5 +27,7 @@
   "inNumCelMuyCorto": "Tu número debe ser más largo",
   "inNumCelReq": "Ingresa tu teléfono.",
   "inLocalidad": "Seleccione su localidad",
-  "inLocalidadReq": "¿De dónde eres?"
+  "inLocalidadReq": "¿De dónde eres?",
+  "toast504Title": "Recibimos tus datos correctamente",
+  "toast504Description": "Un asesesor se contactará a la brevedad."
 }
