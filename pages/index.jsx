@@ -1,4 +1,5 @@
 import React, { useState, Fragment, useEffect, useMemo, useCallback } from 'react'
+import { hydrate, render } from "react-dom";
 import dynamic from 'next/dynamic'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import Head from '../components/head'
@@ -14,6 +15,12 @@ import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 
+const rootElement = document.getElementById("root");
+if (rootElement.hasChildNodes()) {
+  hydrate(<App />, rootElement);
+} else {
+  render(<App />, rootElement);
+}
 
 
 const BlackoutComponent = dynamic(import('../components/BlackoutComponent'))
