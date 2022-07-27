@@ -1,0 +1,371 @@
+@import "../../sass/variables.scss";
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: transparent;
+  position: fixed;
+  z-index: 1;
+  color: white;
+  &.gradient {
+    background: #ffd701;
+  }
+  ul {
+    list-style-type: none;
+  }
+}
+.toolbar__container-items {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 90%;
+}
+.toolbar__items {
+  margin-right: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  width: 70%;
+  height: 100%;
+  float: right;
+  font-size: 15px;
+  small {
+    font-size: 0.8rem;
+    color: #000;
+  }
+  a{
+    color: white;
+    margin: 0px 20px;
+    cursor: pointer
+  }
+  button {
+    width: auto;
+    margin-left: 15px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 15px;
+    background-color: #000;
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+      background-color: #0b4f9a;
+    }
+  }
+  img {
+    cursor: pointer;
+    width: 10%;
+    padding-left: 1rem;
+  }
+}
+
+.toolbar__logo {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  margin-left: 20%;
+  font-size: 1.5rem;
+  width: 100%;
+  img {
+    width: 200px;
+  }
+}
+
+.toolbar__powered {
+  cursor: pointer;
+  margin-left: 50%;
+  width: 100%;
+  p {
+    font-size: 0.6rem;
+    color: #000;
+    letter-spacing: 0.1rem;
+  }
+  img {
+    width: 120px;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.spacer {
+  flex: 1;
+}
+
+.toolbar__toggle-button {
+  display: none;
+}
+.toggle-button {
+  height: 20px;
+  width: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+  box-shadow: none;
+  display: block;
+  border-radius: 0px;
+  /*&:hover {
+  }*/
+  &:focus {
+    outline: none;
+  }
+  .toggle-button__line {
+    width: 42px;
+    height: 3px;
+    background: white;
+    margin-bottom: 8px;
+    border-radius: 20px;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(1, 1, 1, 0.2);
+  z-index: 1;
+}
+.side-drawer {
+  height: 100%;
+  background: #fafafa;
+  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  z-index: 2;
+  transform: translateX(200%);
+  transition: transform 0.3s ease-out;
+}
+
+.side-drawer.open {
+  transform: translateX(0);
+}
+.side-drawer ul {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  margin-top: 15%;
+  text-transform: uppercase;
+}
+.side-drawer__close-button {
+  color: $primaryColor;
+  background: none;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  min-width: 80px;
+  height: 40px;
+  font-size: 30px;
+  display: block;
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+.item__separator {
+  background-color: $primaryColor;
+  height: 5px;
+  width: 80%;
+  border-radius: 10px;
+  margin: 30px auto 30px;
+}
+.side-drawer__login {
+  margin: 0px auto 0px auto;
+}
+
+.side-drawer a {
+  color: $primaryColor;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.side-drawer a:hover,
+.side-drawer a:active {
+  color:  $secondaryColor;
+}
+.side-drawer--active {
+  color:  $secondaryColor;
+}
+.toolbar__button-group1 {
+  display: flex;
+  justify-content: space-around;
+  flex: 2;
+  button {
+    font-size: 14px;
+    min-width: 110px;
+    justify-content: center;
+    letter-spacing: 0.1rem;
+  }
+  .login {
+    background-color:   $secondaryColor;
+    border: 1px solid white;
+    height: 30px;
+    &:hover {
+      background-color: white;
+      color:  $secondaryColor;
+      border: 1px solid   $secondaryColor;
+    }
+  }
+  .signup {
+    height: 30px;
+    background: linear-gradient(90deg, rgba(255, 83, 80, 0.1), $primaryColor);
+    &:hover {
+      background: linear-gradient(90deg,  $secondaryColor, $primaryColor);
+    }
+  }
+}
+.toolbar__button-group2 {
+  display: none;
+}
+.toolbar__toggle-button {
+  display: none;
+}
+@media (max-width: 1300px) {
+  .toolbar__items {
+    ul {
+      width: 50%;
+    }
+  }
+}
+
+@media (max-width: 930px) {
+  .toolbar__button-group1 {
+    display: none;
+  }
+
+  .toolbar__items {
+    ul {
+      display: none;
+    }
+  }
+  .toolbar__toggle-button {
+    display: block;
+    width: 10%;
+  }
+  .toolbar__button-group2 {
+    display: block;
+    margin-right: 30px;
+  }
+  .toolbar__items {
+    display: none;
+  }
+  .toolbar__logo {
+    margin-left: 20px;
+  }
+  .side-drawer__logo {
+    display: block;
+    width: 70px;
+    margin: 50px 50px 0px auto;
+  }
+}
+@media (min-width: 930px) {
+  .side-drawer {
+    display: none;
+  }
+}
+
+@media (max-width: 770px) {
+  .toolbar__logo {
+    margin-bottom: auto !important;
+    margin-top: auto !important;
+    img {
+      width: 130px;
+    }
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .side-drawer {
+    width: 80%;
+  }
+  .toolbar {
+    padding: 10px 10px;
+    height: 45px;
+    &.gradient {
+      background: #ffd701;
+  }
+}
+  .toggle-button {
+    height: 21px;
+    .toggle-button__line {
+      width: 25px;
+      margin-bottom: 4px;
+      height: 2px;
+    }
+    &:hover {
+      background: none;
+      border: none;
+    }
+  }
+}
+
+@media (max-width: 412px) {
+ 
+  .toolbar__powered {
+    cursor: pointer;
+    margin-left: 10%;
+    width: 100%;
+    p {
+      font-size: 0.6rem;
+      color: #000;
+      letter-spacing: 0.1rem;
+      display: none;
+    }
+    img {
+      width: 100px;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 426px) {
+ 
+  .toolbar__toggle-button {
+    margin: 0;
+  }
+  .toolbar__container-items {
+    width: 78%;
+  }
+  .toolbar__button-group2 {
+    min-width: 120px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 376px) {
+  .toolbar__button-group2 {
+    margin-right: 0px;
+  }
+}
+@media (max-width: 321px) {
+  .toolbar__logo {
+    margin-left: 5px;
+    img {
+      width: 120px;
+    }
+  }
+  .side-drawer__logo {
+    display: block;
+    width: 50px;
+    margin: 50px 50px 0px auto;
+  }
+  .side-drawer a {
+    font-size: 20px;
+  }
+  .side-drawer__close-button {
+    font-size: 50px;
+  }
+  .toolbar__button-group2 {
+    min-width: 90px;
+    height: 30px;
+    margin-right: 0px;
+  }
+}

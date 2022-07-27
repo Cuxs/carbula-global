@@ -1,0 +1,113 @@
+@import "../../sass/variables.scss";
+
+.accordion {
+  border-radius: 2px;
+  width: 500px;
+  margin-top: 40px;
+  margin-right: 40px;
+}
+.accordion__heading {
+  position: relative;
+}
+.mobile-only{
+  display:none;
+}
+
+.accordion__item + .accordion__item {
+  border-top: 0.5px solid $grey;
+}
+
+.accordion__button {
+  border-bottom: none;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  text-transform: uppercase;
+  color: $black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.accordion__button:after {
+  float: right;
+  margin-top: 5px;
+  content: "";
+  height: 10px;
+  width: 10px;
+  border-bottom: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(-45deg);
+}
+.accordion__button[aria-expanded="true"],
+.accordion__button[aria-selected="true"] {
+  color: $grey;
+  border-bottom: none;
+}
+
+.accordion__button[aria-expanded="true"]::after,
+.accordion__button[aria-selected="true"]::after {
+  transform: rotate(45deg);
+  color: $primaryColor;
+}
+
+.accordion__panel {
+  padding: 0px 20px 20px 20px;
+  animation: fadein 0.35s ease-in;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+@media (max-width: 1025px) {
+  .accordion__item {
+    width: 80%;
+  }
+}
+@media (max-width: 769px) {
+  .accordion {
+    border-radius: 2px;
+    width: 550px;
+    margin: 70px auto 80px auto;
+  }
+  .accordion__item {
+    width: 90%;
+  }
+  .accordion__panel {
+    p {
+      text-align: left;
+      font-size: 1rem;
+    }
+  }
+  .mobile-only{
+    display:inline
+  }
+  .desktop-only{
+    display:none
+  }
+}
+@media (max-width: 426px) {
+  .accordion {
+    border-radius: 2px;
+    width: 80%;
+    margin: 70px auto 80px auto;
+  }
+  .accordion__button {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 376px) {
+  .accordion {
+    width: 90%;
+  }
+}

@@ -1,6 +1,6 @@
-import React, { useState, Fragment, useEffect, useMemo, useCallback } from 'react'
+import React, { useState, Fragment, useEffect, useCallback } from 'react'
 import dynamic from 'next/dynamic'
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import Head from '../components/head'
 import Jumbotron from '../components/Jumbotron'
 import styles from './index/home.module.scss'
@@ -8,8 +8,7 @@ import Image from 'next/image'
 import { getZonas } from '../utils/fetches';
 import { useSpring, animated } from "react-spring";
 import { hotjar } from 'react-hotjar'
-import { clearCotization, getCountryCode, clearLocalStorage, getHotjarId, getPhoneNumber, getWhatsappNumber, getTitleByCountry } from '../utils/helpers';
-import { upperFirst } from 'lodash'
+import {  getCountryCode, clearLocalStorage, getHotjarId, getPhoneNumber, getWhatsappNumber, getTitleByCountry } from '../utils/helpers';
 import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
@@ -161,9 +160,6 @@ const Home = ({ zonas, referer, COUNTRY_CODE }) => {
         <div className={styles.couple__image}>
           <Image src="/images/carbula_couple.webp" width="690" height="640" alt="Pareja" />
         </div>
-      </section>
-      <section>
-        <QuoteComponent text={['El mundo está cambiando.', 'La forma de vender y comprar', 'vehículos, también.']} />
       </section>
       <section>
         <div className={styles.section2__container}>

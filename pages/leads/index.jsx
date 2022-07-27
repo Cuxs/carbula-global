@@ -9,7 +9,6 @@ import { SearchOutlined, PlusCircleOutlined } from '@ant-design/icons';
 import { createHubspotLead, useLeads } from '../../utils/fetches';
 import styles from './leads.module.scss';
 import dayjs from 'dayjs';
-import dynamic from 'next/dynamic';
 
 const Leads = () => {
   const router = useRouter()
